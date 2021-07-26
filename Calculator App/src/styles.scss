@@ -1,0 +1,225 @@
+:root {
+  --clr-main-bg: hsl(222, 26%, 31%);
+  --clr-keypad-bg: hsl(223, 31%, 20%);
+  --clr-screen-bg: hsl(224, 36%, 15%);
+  --clr-toggle-bg: hsl(6, 63%, 50%);
+  --clr-key-bg: hsl(30, 25%, 89%);
+  --clr-key-shadow: hsl(28, 16%, 65%);
+  --clr-key-text: hsl(221, 14%, 31%);
+  --clr-key-func-bg: hsl(225, 21%, 49%);
+  --clr-key-func-shadow: hsl(224, 28%, 35%);
+  --clr-key-func-text: white;
+  --clr-key-calc-bg: hsl(6, 63%, 50%);
+  --clr-key-calc-shadow: hsl(6, 70%, 34%);
+  --clr-key-calc-text: white;
+  --clr-text: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Spartan', sans-serif;
+  transition: 0.15s all;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-main-bg);
+  scroll-behavior: smooth;
+
+  &[data-theme="light"] {
+    --clr-main-bg: hsl(0, 0%, 90%);
+    --clr-keypad-bg: hsl(0, 5%, 81%);
+    --clr-screen-bg: hsl(0, 0%, 93%);
+    --clr-toggle-bg: hsl(25, 98%, 40%);
+    --clr-key-bg: hsl(45, 7%, 89%);
+    --clr-key-shadow: hsl(35, 11%, 61%);
+    --clr-key-text: hsl(221, 14%, 31%);
+    --clr-key-func-bg: hsl(185, 42%, 37%);
+    --clr-key-func-shadow: hsl(185, 58%, 25%);
+    --clr-key-calc-bg: hsl(25, 98%, 40%);
+    --clr-key-calc-shadow: hsl(25, 99%, 27%);
+    --clr-text: black;
+  }
+
+  &[data-theme="violet"] {
+    --clr-main-bg: hsl(268, 75%, 9%);
+    --clr-keypad-bg: hsl(268, 71%, 12%);
+    --clr-screen-bg: hsl(268, 71%, 12%);
+    --clr-toggle-bg: hsl(176, 100%, 44%);
+    --clr-key-bg: hsl(268, 47%, 21%);
+    --clr-key-shadow: hsl(290, 70%, 36%);
+    --clr-key-text: hsl(52, 100%, 62%);
+    --clr-key-func-bg: hsl(281, 89%, 26%);
+    --clr-key-func-shadow: hsl(285, 91%, 52%);
+    --clr-key-calc-bg: hsl(176, 100%, 44%);
+    --clr-key-calc-shadow: hsl(177, 92%, 70%);
+    --clr-key-calc-text: hsl(198, 20%, 13%);
+    --clr-text: hsl(52, 100%, 62%);
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--clr-text);
+  width: Min(800px, 100vw);
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    font-size: 1.75rem;
+  }
+
+  .theme-changer {
+    label {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    &__volume {
+      display: block;
+      text-align: right;
+      font-size: 0.7rem;
+      letter-spacing: 0.74rem;
+      margin-bottom: 5px;
+      margin-right: -2px;
+    }
+
+    &__slider {
+      width: 65px;
+      order: 2;
+      padding: 3px 5px;
+      border-radius: 30px;
+      background-color: var(--clr-keypad-bg);
+
+      @mixin thumb-style {
+        border-radius: 50%;
+        background-color: var(--clr-toggle-bg);
+        box-shadow: 0 0 10px var(--clr-toggle-bg);
+        border: none;
+        cursor: pointer;
+      }
+      &::-moz-range-thumb {
+        @include thumb-style();
+      }
+      &::-webkit-slider-thumb {
+        @include thumb-style();
+      }
+      &::-ms-thumb {
+        @include thumb-style();
+      }
+    }
+  }
+}
+
+.screen {
+  width: 100%;
+  height: 80px;
+  background-color: var(--clr-screen-bg);
+  padding: 20px 0;
+  border-radius: 10px;
+  text-align: right;
+  
+  span {
+    display: block;
+    width: calc(100% - 40px);
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    overflow-y: visible;
+    font-size: 2rem;
+  }
+}
+
+.keypad {
+  flex: 1 1 auto;
+  padding: 1.5rem;
+  background-color: var(--clr-keypad-bg);
+  border-radius: 10px;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  gap: 0.75rem;
+
+  button {
+    background-color: var(--clr-key-bg);
+    border: none;
+    border-bottom: 4px solid var(--clr-key-shadow);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: var(--clr-key-text);
+    cursor: pointer;
+    padding-top: 0.5rem;
+
+    &:active {
+      margin-top: 2px;
+      border-bottom-width: 0;
+    }
+  }
+
+  .func-btn {
+    font-size: 1rem;
+    color: var(--clr-key-func-text);
+  }
+
+  #delBtn,
+  #resetBtn {
+    background-color: var(--clr-key-func-bg);
+    border-color: var(--clr-key-func-shadow);
+  }
+
+  #resetBtn {
+    grid-column: 1 / span 2;
+  }
+
+  #calcBtn {
+    grid-column: 3/ span 2;
+    background-color: var(--clr-key-calc-bg);
+    border-color: var(--clr-key-calc-shadow);
+    color: var(--clr-key-calc-text);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  main {
+    padding: 8rem;
+  }
+
+  .screen {
+    width: 100%;
+    height: 120px;
+    padding: 30px 0;
+  
+    span {
+      font-size: 3rem;
+      width: calc(100% - 60px);
+    }
+  }
+
+  .keypad {
+    gap: 1.5rem;
+
+    button {
+      font-size: 2rem;
+    }
+
+    .func-btn {
+      font-size: 1.25rem;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Calculator App Challenge</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <span class="logo">calc</span>
+        <div class="theme-changer">
+          <span class="theme-changer__volume">123</span>
+          <label for="themeSlider">
+            Theme
+            <input
+              id="themeSlider"
+              class="theme-changer__slider"
+              type="range"
+              max="3"
+              min="1"
+              step="1"
+              value="1"
+            />
+          </label>
+        </div>
+      </nav>
+      <div class="screen">
+        <span id="caculatedResult"></span>
+      </div>
+      <div class="keypad">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="func-btn" id="delBtn">DEL</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>+</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>-</button>
+        <button>.</button>
+        <button>0</button>
+        <button>/</button>
+        <button>x</button>
+        <button class="func-btn" id="resetBtn">RESET</button>
+        <button class="func-btn" id="calcBtn">=</button>
+      </div>
+    </main>
+    <script src="./src/index.js"></script>
+  </body>
+</html>

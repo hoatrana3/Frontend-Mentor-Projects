@@ -1,0 +1,23 @@
+{
+  "name": "rock-paper-scissors-game-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "css-loader": "6.2.0",
+    "gsap": "3.7.1",
+    "parcel-bundler": "^1.6.1",
+    "sass-loader": "12.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": []
+}

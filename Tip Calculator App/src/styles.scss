@@ -1,0 +1,257 @@
+$clr-primary: hsl(183, 100%, 15%);
+$clr-secondary: hsl(172, 67%, 45%);
+$clr-background: hsl(185, 41%, 84%);
+$clr-label: hsl(186, 14%, 43%);
+$clr-gray: hsl(189, 41%, 97%);
+$clr-muted: hsl(184, 14%, 56%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Space Mono", monospace;
+  transition: 0.25s all ease-in-out;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: $clr-background;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  position: relative;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.75rem;
+  width: 100%;
+  height: 100%;
+  padding: 3.5rem 0 0 0;
+}
+
+.logo {
+  width: 85px;
+}
+
+.calculator {
+  flex: 1;
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background-color: white;
+
+  &, form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+input[type="number"] {
+  width: 100%;
+  background-color: $clr-gray;
+  border: 2px solid $clr-gray;
+  padding: 0.25rem 1rem;
+  outline: none;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $clr-primary;
+  text-align: right;
+
+  &.is-valid {
+    border-color: $clr-secondary;
+    caret-color: $clr-secondary;
+  }
+
+  &.has-error {
+    border-color: red;
+    color: red;
+  }
+}
+
+.calculator {
+  &__label {
+    display: block;
+    font-weight: bold;
+    color: $clr-label;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translate(0, -50%);
+    }
+    
+    input {
+      padding-left: 45px;
+      padding-right: 1.25rem;
+    }
+
+    &:after {
+      content: attr(data-error);
+      position: absolute;
+      top: -2rem;
+      right: 0;
+      color: red;
+      font-weight: bold;
+    }
+  }
+
+  &__tip-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+    padding-top: 0.75rem;
+
+    label {
+      background-color: $clr-primary;
+      padding: 5px 18px;
+      border-radius: 0.25rem;
+      line-height: 2.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+
+      &:active {
+        background-color: lighten($clr-secondary, 20);
+        color: $clr-primary;
+      }
+    }
+
+    input[type="radio"] {
+      display: none;
+
+      &:checked + label {
+        background-color: $clr-secondary;
+        color: $clr-primary;
+      }
+    }
+  }
+
+  &__result {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: $clr-primary;
+    border-radius: 1.25rem;
+    padding: 2.5rem 1.5rem 1.5rem;
+
+    button {
+      width: 100%;
+      padding: 0.5rem 1.25rem;
+      margin-top: auto;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      color: $clr-primary;
+      background: $clr-secondary;
+      outline: none;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+
+      &:not(:disabled):active {
+        background-color: lighten($clr-secondary, 20);
+      }
+
+      &:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__result-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      margin: 0;
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 0.95rem;
+      display: block;
+      color: $clr-background;
+    }
+
+    small {
+      color: $clr-muted;
+    }
+
+    h3 {
+      font-size: 2rem;
+      color: $clr-secondary;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 950px;
+    padding: 0;
+    height: auto;
+    gap: 5rem;
+  }
+
+  .calculator {
+    flex-direction: row;
+    padding: 2rem;
+    border-radius: 1.75rem;
+    box-shadow: 0 1.5rem 2.5rem 0 rgba($clr-primary, 0.15);
+
+    form {
+      width: 50%;
+    }
+
+    &__result {
+      flex: 1;
+    }
+
+    form {
+      padding: 1rem;
+    }
+
+    &__tip-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &__result {
+      padding: 3.5rem 2.5rem 2.5rem;
+      gap: 2.25rem;
+    }
+
+    &__result-line h3 {
+      font-size: 2.75rem;
+    }
+  }
+}

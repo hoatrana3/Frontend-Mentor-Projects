@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Rock-Paper-Scissors Game Challenge</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <img id="logo" src="/images/logo.svg" alt="" />
+      <div class="score-box">
+        <span>Score</span>
+        <h2 id="scoreText">0</h2>
+      </div>
+    </nav>
+    <main>
+      <div id="scenePicking" class="game-scene">
+        <div id="gameChoices">
+          <div class="bg-choice">
+            <div>
+              <img id="playgroundBg" src="/images/bg-triangle.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sceneFinal" class="game-scene">
+        <div id="playerOneChoice" class="player-choice not-picked">
+          <div class="choice"></div>
+          <span>You picked</span>
+        </div>
+        <div id="playerTwoChoice" class="player-choice not-picked">
+          <div class="choice"></div>
+          <span>The house picked</span>
+        </div>
+        <div id="gameResults" class="results">
+          <h1 id="resultText">You win</h1>
+          <button id="playAgainBtn">Play again</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <button id="modesChangeBtn">Mode: <strong>Basic</strong></button>
+      <button id="rulesBtn">Rules</button>
+    </footer>
+    <section id="rulesModal">
+      <h1>Rules</h1>
+      <img id="rulesImage" src="/images/image-rules.svg" alt="" />
+      <img id="rulesModalClose" src="/images/icon-close.svg" alt="" />
+    </section>
+    <script src="./src/index.js"></script>
+  </body>
+</html>

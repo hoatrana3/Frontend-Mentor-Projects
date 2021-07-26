@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Tip Calculator App Challenge</title>
+  </head>
+  <body>
+    <main>
+      <img src="./images/logo.svg" alt="" class="logo" />
+      <div class="calculator">
+        <form id="calculatorForm">
+          <section>
+            <label class="calculator__label" for="billInput">Bill</label>
+            <div class="calculator__input">
+              <img src="./images/icon-dollar.svg" alt="" />
+              <input type="number" min="0" id="billInput" name="bill" required />
+            </div>
+          </section>
+          <section>
+            <label class="calculator__label">Select Tip %</label>
+            <div class="calculator__tip-list">
+              <input type="radio" id="tipAmt1" name="tipAmt" value="5" />
+              <label for="tipAmt1">5%</label>
+              <input type="radio" id="tipAmt2" name="tipAmt" value="10" />
+              <label for="tipAmt2">10%</label>
+              <input type="radio" id="tipAmt3" name="tipAmt" value="15" />
+              <label for="tipAmt3">15%</label>
+              <input type="radio" id="tipAmt4" name="tipAmt" value="25" />
+              <label for="tipAmt4">25%</label>
+              <input type="radio" id="tipAmt5" name="tipAmt" value="50" />
+              <label for="tipAmt5">50%</label>
+              <input
+                type="number" 
+                min="0"
+                id="tipAmtAlt"
+                name="tipAmtAlt"
+                placeholder="Custom"
+              />
+            </div>
+          </section>
+
+          <section>
+            <label class="calculator__label" for="peopleNum"
+              >Number of People</label
+            >
+            <div class="calculator__input">
+              <img src="./images/icon-person.svg" alt="" />
+              <input type="number" min="0" id="peopleNum" name="peopleNum" required />
+            </div>
+          </section>
+        </form>
+        <div class="calculator__result">
+          <div class="calculator__result-line">
+            <p>
+              <span>Tip Amount</span>
+              <small>/ person</small>
+            </p>
+            <h3 id="resTipAmt">$0.00</h1>
+          </div>
+          <div class="calculator__result-line">
+            <p>
+              <span>Total</span>
+              <small>/ person</small>
+            </p>
+            <h3 id="resTotal">$0.00</h1>
+          </div>
+          <button id="btnReset">Reset</button>
+        </div>
+      </div>
+    </main>
+    <script src="./src/index.js"></script>
+  </body>
+</html>
