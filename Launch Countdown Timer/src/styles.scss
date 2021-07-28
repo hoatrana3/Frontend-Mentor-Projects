@@ -1,0 +1,286 @@
+$light-1: #FFE1B5;
+$light-2: #F38D39;
+$medium-1: #AF483C;
+$medium-2: #50152F;
+$dark-1: #250E28;
+$dark-2: #09020A;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Red Hat Text', sans-serif;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  background-color: $light-1;
+  background-image: radial-gradient(circle, $light-1, $light-2, $medium-1, $medium-2, $dark-1, $dark-2);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+#bgVideo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  min-width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  width: Min(800px, 100%);
+  height: 100%;
+  padding: 10rem 1.5rem 3rem;
+
+  h2 {
+    color: $medium-2;
+    text-align: center;
+    letter-spacing: 5px;
+  }
+}
+
+.countdown-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  .time-unit {
+    flex: 1;
+    text-align: center;
+
+    &.is-flipped .flipper { 
+      &, span {
+        transform:  rotateX(180deg);
+        transition: 0.5s transform cubic-bezier(.175, .885, .32, 1.275);
+      }
+
+      span {
+        box-shadow: 0 0 0 10px $dark-1;
+      }
+    }
+
+    &__card {
+      position: relative;
+      margin-bottom: 5px;
+      box-shadow: 0 5px 0 0 $dark-1;
+
+      &,
+      &:after,
+      &:before,
+      .flipper,
+      .flipper > span,
+      .flipper > span:after,
+      .flipper > span:before {
+        width: 100%;
+        min-height: 60px;
+        line-height: 60px;
+        background-color: $medium-1;
+        border-radius: 5px;
+        color: $light-1;
+        font-size: 2.25rem;
+        cursor: progress;
+        user-select: none;
+        z-index: 0;
+      }
+
+      & {
+        background-color: transparent;
+      }
+
+      &:after,
+      &:before,
+      .flipper,
+      .flipper > span,
+      .flipper > span:after,
+      .flipper > span:before {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+
+      &:before,
+      .flipper > span:before {
+        content: var(--data-next);
+      }
+
+      &:after,
+      .flipper > span:after {
+        content: var(--data-current);
+      }
+
+      &:before {
+        filter: contrast(130%);
+      }
+
+      &:after {
+        clip-path: inset(50% 0 0 0);
+      }
+
+      .splitter {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+        height: 0.5px;
+        width: 100%;
+        z-index: 10;
+
+        &,
+        &:before,
+        &:after {
+          background-color: $dark-1;
+        }
+
+        &:before,
+        &:after {
+          content: '';
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          border-radius: 50%;
+        }
+
+        &:before {
+          left: 0;
+          transform: translate(-50%, -50%);
+          clip-path: inset(0 0 0 50%);
+        }
+
+        &:after {
+          right: 0;
+          transform: translate(50%, -50%);
+          clip-path: inset(0 50% 0 0);
+        }
+      }
+
+      .flipper {
+        background-color: transparent;
+        clip-path: inset(0 0 50% 0);
+        z-index: 2;
+      
+        span
+        span:before,
+        span:after {
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+        }
+
+        span:before {
+          transform:  rotateY(180deg) scale(-1, 1);
+        }
+
+        span:after {
+          filter: contrast(130%);
+        }
+      }
+    }
+
+    &__text {
+      word-break: break-all;
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: $light-1;
+      text-shadow: 0 0 5px $dark-1;
+    }
+  }
+}
+
+.socials {
+  margin-top: auto;
+  display: flex;
+  gap: 2rem;
+
+  a {
+    text-decoration: none;
+
+    svg > path {
+      transition: 0.5s all ease;
+      fill: $light-1;
+    }
+
+    &:hover svg > path {
+      fill: $light-2;
+    }
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  body {
+    &:before {
+      background-size: 100%;
+    }
+  
+    &:after {
+      height: 250px;
+    }
+  }
+
+  main {
+    margin: 0 auto;
+    gap: 6.5rem;
+    padding: 15rem 3rem 5rem;
+  
+    h2 {
+      font-size: 1.75rem;
+      letter-spacing: 10px;
+    }
+  }
+
+  .countdown-container {
+    gap: 2.5rem;
+
+    .time-unit {
+      &__card {
+        margin-bottom: 25px;
+        box-shadow: 0 10px 0 0 $dark-1;
+  
+        &,
+        &:after,
+        &:before,
+        .flipper,
+        .flipper > span,
+        .flipper > span:after,
+        .flipper > span:before {
+          min-height: 130px;
+          line-height: 130px;
+          border-radius: 8px;
+          font-size: 5rem;
+        }
+
+        .splitter {
+          &:before,
+          &:after {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+
+      &__text {
+        font-size: 1rem;
+        letter-spacing: 6px;
+      }
+    }
+  }
+}
