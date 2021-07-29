@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <title>REST Countries App Challenge</title>
+  </head>
+  <body>
+    <nav>
+      <h3>Where in the world?</h3>
+      <button id="darkModeToggler">
+        <ion-icon name="moon"></ion-icon>
+        <span>Dark Mode</span>
+      </button>
+    </nav>
+    <main id="pagesContainer">
+      <div id="pageAll" class="page">
+        <section class="filters">
+          <div class="filters__search filters--control">
+            <ion-icon name="search-outline"></ion-icon>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search for a country..."
+            />
+          </div>
+          <div class="filters__region filters--control">
+            <div id="regionFilterToggler" class="filters__region-main">
+              <input type="text" placeholder="Filter by Region" />
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </div>
+            <div id="regionFilterDropdown" class="filters__region-dropdown">
+              <ul>
+                <li data-region="*">All Regions</li>
+                <li data-region="Africa">Africa</li>
+                <li data-region="Americas">Americas</li>
+                <li data-region="Asia">Asia</li>
+                <li data-region="Europe">Europe</li>
+                <li data-region="Oceania">Oceania</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section id="countryDataGrid" class="country-grid"></section>
+      </div>
+      <div id="pageDetails" class="page">
+        <button id="btnBack">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>Back</span>
+        </button>
+        <section
+          id="countryDetails"
+          class="country-details has-country-info"
+        ></section>
+      </div>
+    </main>
+    <script src="src/index.js"></script>
+  </body>
+</html>
