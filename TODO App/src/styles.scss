@@ -1,0 +1,356 @@
+:root {
+  --clr-primary: hsl(220, 98%, 61%);
+  --clr-text: hsl(235, 19%, 35%);
+  --clr-text-muted: hsl(233, 11%, 84%);
+  --clr-border: hsl(236, 33%, 92%);
+  --clr-element: hsl(0, 0%, 98%);
+  --clr-background: hsl(236, 33%, 92%);
+  --clr-gradient-bg: linear-gradient(-45deg, hsl(280, 87%, 65%), hsl(192, 100%, 67%));
+
+  --bg-header: url("../images/bg-mobile-light.jpg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  transition: 0.25s all ease;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  font-size: 18px;
+  background-color: var(--clr-background);
+}
+
+body.is-dark {
+  --clr-text: hsl(234, 39%, 85%);
+  --clr-text-muted: hsl(233, 11%, 84%);
+  --clr-border: hsl(235, 19%, 26%);
+  --clr-element: hsl(235, 24%, 19%);
+  --clr-background: hsl(235, 21%, 11%);
+
+  --bg-header: url("../images/bg-mobile-dark.jpg");
+}
+
+ion-icon {
+  vertical-align: middle;
+}
+
+header {
+  width: 100%;
+  padding: 2.5rem 1.5rem;
+  background-image: var(--bg-header);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 8px;
+  }
+
+  #themeToggler {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
+
+.add-todo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+  background-color: var(--clr-element);
+  border-radius: 5px;
+
+  #addTodoInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    margin: 1rem 0 1rem 1.25rem;
+    font-size: 0.75rem;
+    background-color: transparent;
+    color: var(--clr-text);
+  }
+
+  #addTodoBtn {
+    border: none;
+    background-image: var(--clr-gradient-bg);
+    padding: 0.5rem;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    box-shadow: 0 0 10px rgba(black, 0.3);
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+main {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.todo-list {
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+  background-color: var(--clr-element);
+  border-radius: 5px;
+  margin: -1.5rem 0 5.5rem 0;
+  box-shadow: 0 20px 20px -15px rgba(black, 0.3);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  border-bottom: 1px solid var(--clr-border);
+  color: var(--clr-text);
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &.is-dragging {
+    scale: 1.1;
+    box-shadow: 0 10px 10px -10px rgba(black, 0.3);
+    background-color: var(--clr-element);
+    border-radius: 5px;
+  }
+
+  &.is-completed {
+    .todo-item__checkbox {
+      border-color: transparent;
+      background: var(--clr-gradient-bg) border-box;
+      -webkit-mask: none;
+      -webkit-mask-composite: none;
+      mask-composite: none;
+
+      ion-icon {
+        opacity: 1;
+      }
+    }
+
+    small {
+      opacity: 0.3;
+      text-decoration: line-through;
+      text-decoration-thickness: 1px;
+    }
+  }
+  
+  &__checkbox {
+    border: 1px solid var(--clr-border);
+    border-radius: 50%;
+    font-size: 0.6rem;
+    padding: 2px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    
+    ion-icon {
+      opacity: 0;
+      color: white;
+    }
+
+    &:hover {
+      border-color: transparent;
+      background: var(--clr-gradient-bg) border-box;
+      -webkit-mask:
+         linear-gradient(#fff 0 0) padding-box, 
+         linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+    }
+  }
+
+  small {
+    font-size: 0.65rem;
+  }
+
+  ion-icon[name="close-outline"] {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--dark-grayish-blue);
+    cursor: pointer;
+  }
+}
+
+.todo-info, .todo-filter {
+  display: flex;
+  align-items: center;
+}
+
+.todo-info {
+  position: relative;
+  padding: 1rem 0.75rem 1rem 0.75rem;
+  justify-content: space-between;
+
+  small {
+    color: var(--clr-text);
+    font-size: 0.65rem;
+    opacity: 0.4;
+  }
+
+  #clearCompletedTrigger {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .todo-filter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(0, calc(100% + 1rem));
+    background-color: var(--clr-element);
+    width: 100%;
+    padding: 0.75rem;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px -15px rgba(black, 0.3);
+    gap: 0.5rem;
+
+    input {
+      display: none;
+
+      &:checked + label {
+        color: var(--clr-primary);
+        opacity: 1;
+      }
+    }
+
+    label {
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: var(--clr-text);
+      opacity: 0.6;
+      font-weight: bold;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  color: var(--clr-text);
+  opacity: 0.4;
+  font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 1080px) {
+  :root {
+    --bg-header: url("../images/bg-desktop-light.jpg");
+  }
+
+  body.is-dark {
+    --bg-header: url("../images/bg-desktop-dark.jpg");
+  }
+
+  header {
+    padding: 5rem calc((100% - 500px) / 2);
+  }
+
+  nav {
+    margin-bottom: 2rem;
+  
+    h3 {
+      font-size: 2.25rem;
+      letter-spacing: 10px;
+    }
+  
+    #themeToggler {
+      font-size: 1.5rem;
+    }
+  }
+
+  .add-todo-section {
+    #addTodoInput {
+      margin: 1rem 0 1rem 1.5rem;
+      font-size: 1rem;
+    }
+  
+    #addTodoBtn {
+      padding: 0.75rem;
+    }
+  }
+
+  main {
+    width: 100%;
+    padding: 0 calc((100% - 500px) / 2);
+  }
+
+  .todo-list {
+    margin: -3rem 0 3rem 0;
+  }
+
+  .todo-item {
+    gap: 1rem;
+    padding: 0.9rem 1rem 0.9rem 1.25rem;
+    
+    &__checkbox {
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      ion-icon[name="close-outline"] {
+        opacity: 1;
+        font-size: 1.5rem;
+      }
+    }
+
+    small {
+      font-size: 0.9rem;
+    }
+  
+    ion-icon[name="close-outline"] {
+      opacity: 0;
+      font-size: 0rem;
+    }
+  }
+
+  .todo-info {
+    small {
+      font-size: 0.7rem;
+    }
+  
+    .todo-filter {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: auto;
+      padding: 0;
+      box-shadow: none;
+      gap: 0.5rem;
+      background-color: transparent;
+  
+      label {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+}

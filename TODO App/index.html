@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>TODO App Challenge</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h3>TODO</h3>
+        <ion-icon id="themeToggler" name="moon-sharp"></ion-icon>
+      </nav>
+      <section class="add-todo-section">
+        <input
+          id="addTodoInput"
+          type="text"
+          id="newTodoInput"
+          placeholder="Create new todo..."
+        />
+        <button id="addTodoBtn">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </section>
+    </header>
+    <main>
+      <ul id="todoList" class="todo-list"></ul>
+    </main>
+    <footer>
+      <small>Drag and drop to reorder list</small>
+    </footer>
+    <script src="src/index.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
