@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Room Homepage Challenge</title>
+  </head>
+  <body>
+    <header>
+      <div id="menuToggler">
+        <span></span>
+      </div>
+      <img class="logo" src="./images/logo.svg" alt="" />
+      <ul>
+        <li>home</li>
+        <li>shop</li>
+        <li>about</li>
+        <li>contact</li>
+      </ul>
+    </header>
+
+    <main>
+      <section id="topCarousel" style="--current-slide: 0;">
+        <div class="top-images carousel">
+          <div class="viewport">
+            <div class="item">
+              <img
+                class="mobile-image"
+                src="./images/mobile-image-hero-1.jpg"
+                alt=""
+              />
+              <img
+                class="desktop-image"
+                src="./images/desktop-image-hero-1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="item">
+              <img
+                class="mobile-image"
+                src="./images/mobile-image-hero-2.jpg"
+                alt=""
+              />
+              <img
+                class="desktop-image"
+                src="./images/desktop-image-hero-2.jpg"
+                alt=""
+              />
+            </div>
+            <div class="item">
+              <img
+                class="mobile-image"
+                src="./images/mobile-image-hero-3.jpg"
+                alt=""
+              />
+              <img
+                class="desktop-image"
+                src="./images/desktop-image-hero-3.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="top-contents">
+          <div class="carousel">
+            <div class="viewport">
+              <div class="item has-content">
+                <h1>
+                  Discover innovative ways to decorate
+                </h1>
+                <small>
+                  We provide unmatched quality, comfort, and style for property
+                  owners across the country. Our experts combine form and
+                  function in bringing your vision to life. Create a room in
+                  your own style with our collection and make your property a
+                  reflection of you and what you love.
+                </small>
+              </div>
+              <div class="item has-content">
+                <h1>
+                  We are available all across the globe
+                </h1>
+                <small>
+                  With stores all over the world, it's easy for you to find
+                  furniture for your home or place of business. Locally, we’re
+                  in most major cities throughout the country. Find the branch
+                  nearest you using our store locator. Any questions? Don't
+                  hesitate to contact us today.
+                </small>
+              </div>
+              <div class="item has-content">
+                <h1>
+                  Manufactured with the best materials
+                </h1>
+                <small>
+                  Our modern furniture store provide a high level of quality.
+                  Our company has invested in advanced technology to ensure that
+                  every product is made as perfect and as consistent as
+                  possible. With three decades of experience in this industry,
+                  we understand what customers want for their home and office.
+                </small>
+              </div>
+            </div>
+          </div>
+          <div class="shop-now-btn">
+            <span>SHOP NOW</span>
+            <svg width="40" height="12" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
+                fill="#000"
+                fill-rule="nonzero"
+              />
+            </svg>
+          </div>
+          <div class="carousel-controls">
+            <span id="previousSlide">
+              <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13 0L1 12l12 12"
+                  stroke="#FFF"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+            <span id="nextSlide">
+              <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 0l12 12L1 24"
+                  stroke="#FFF"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="about">
+        <img src="./images/image-about-dark.jpg" alt="" />
+        <div class="has-content">
+          <h3>About our furniture</h3>
+          <small>
+            Our multifunctional collection blends design and function to suit
+            your individual taste. Make each room unique, or pick a cohesive
+            theme that best express your interests and what inspires you. Find
+            the furniture pieces you need, from traditional to contemporary
+            styles or anything in between. Product specialists are available to
+            help you create your dream space.
+          </small>
+        </div>
+        <img src="./images/image-about-light.jpg" alt="" />
+      </section>
+    </main>
+
+    <script src="./src/index.js"></script>
+  </body>
+</html>
